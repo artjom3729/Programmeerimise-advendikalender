@@ -11,7 +11,7 @@ sisend = """##########
 #.###.###.
 #.....#..."""
 
-sisend = [list(line) for line in sisend.split('\n')]
+sisend = [list(line) for line in sisend.splitlines()]
 
 lennart = None
 kodu = None
