@@ -1,14 +1,17 @@
-sisend = "v v p p p p p v p v"
+input_str = "v v p p p p p v p v"
 
-sisend = sisend.strip().split()
-sisend = [n for n in sisend if n != " "]
+def find_tree_number(input_str: str) -> int:
+    input_str = input_str.strip().split()
+    input_str = [letter for letter in input_str if letter != " "]
 
-arv = 1
+    number = 1
 
-for n in sisend:
-    if n == "p":
-        arv *= 2
-    if n == "v":
-        arv = arv * 2 - 1
+    for letter in input_str:
+        if letter == "p":
+            number *= 2
+        if letter == "v":
+            number = number * 2 - 1
+    
+    return number
 
-print(arv)
+print(find_tree_number(input_str)) # Oodatav väljund: 251

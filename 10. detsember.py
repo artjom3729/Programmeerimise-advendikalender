@@ -1,10 +1,10 @@
-sisend = """60x60x10
+input_str = """60x60x10
 50x50x40
 10x10x5"""
 
-def parse_dimensions(sisend):
+def parse_dimensions(input_str):
     blocks = []
-    for line in sisend.strip().splitlines():
+    for line in input_str.strip().splitlines():
         l, w, h = map(int, line.split('x'))
         blocks.append((l, w, h))
     return blocks
@@ -23,8 +23,8 @@ def generate_orientations(blocks):
 def base_area(block):
     return block[0] * block[1]
 
-def tallest_tree_height(sisend):
-    blocks = parse_dimensions(sisend)
+def tallest_tree_height(input_str):
+    blocks = parse_dimensions(input_str)
     orientations = generate_orientations(blocks)
     orientations.sort(key=base_area, reverse=True)
     
@@ -42,5 +42,5 @@ def tallest_tree_height(sisend):
     
     return max(dp)
 
-result = tallest_tree_height(sisend)
+result = tallest_tree_height(input_str)
 print(result)

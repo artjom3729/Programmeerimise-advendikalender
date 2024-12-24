@@ -1,11 +1,11 @@
-sisend = """00011
+input_str = """00011
 10011
 11001
 10101
 11010"""
 
-def count_2x2_squares_of_zeros(sisend):
-    grid = [list(map(int, line)) for line in sisend.strip().splitlines()]
+def count_2x2_squares_of_zeros(input_str):
+    grid = [list(map(int, line)) for line in input_str.strip().splitlines()]
     rows = len(grid)
     cols = len(grid[0])
     count = 0
@@ -18,5 +18,5 @@ def count_2x2_squares_of_zeros(sisend):
     
     return count
 
-result = count_2x2_squares_of_zeros(sisend)
+result = count_2x2_squares_of_zeros(input_str)
 print(result)

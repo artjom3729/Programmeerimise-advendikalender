@@ -1,4 +1,4 @@
-sundmused = """Naaber viib prügikoti välja: 0
+events = """Naaber viib prügikoti välja: 0
 Naaber kaevab midagi tagahoovis: 5
 Naaber kannab raskeid kotte autosse: 2
 Naaber lohistab suurt musta kotti keldrisse: 10
@@ -15,43 +15,55 @@ Naaber kaunistab maja: -2
 Naaber on alati sõbralik: -5
 Naaber laenab suhkrut, et piparkooke küpsetada: 0"""
 
-naabrid = """0: Naaber on alati sõbralik, Naaber vaatab pikalt aknast välja, Naaber jalutab oma koera, Naaber viib prügikoti välja, Naaber vaatab pikalt aknast välja
+neighbours = """0: Naaber on alati sõbralik, Naaber vaatab pikalt aknast välja, Naaber jalutab oma koera, Naaber viib prügikoti välja, Naaber vaatab pikalt aknast välja
 1: Naaber parandab oma aeda, Naaber kaunistab maja, Naaber grillib keset talve
 2: Naaber lahkub hilisõhtul majast, Naabril käivad pidevalt külalised, kes kauaks ei jää, Naaber kannab raskeid kotte autosse, Naaber väldib teisi naabreid
 3: Naaber väldib teisi naabreid, Naaber väldib teisi naabreid
 4: Naaber kaunistab maja, Naaber viib hilisõhtul midagi autosse, Naaber viib prügikoti välja"""
 
-naabrid = naabrid.replace(", N", "; N")
-
-sundmuste_dict = {}
-
-for line in sundmused.strip().splitlines():
-    sundmus, number = line.split(':', 1)
-    sundmuste_dict[sundmus.strip()] = int(number.strip())
-
-naabrid = naabrid.strip().splitlines()
-
-naabrid_list = []
-
-for line in naabrid:
-    _, tegevused = line.split(':')
-    tegevuste_list = [tegevus.strip() for tegevus in tegevused.split(';')]
-    naabrid_list.append(tegevuste_list)
-
-naabrite_skoorid = []
-
-for naaber in naabrid_list:
-    naabri_skoor = 0
-    for n in naaber:
-        naabri_skoor += sundmuste_dict[n]
-    naabrite_skoorid.append(naabri_skoor)
-
-kahtlased_naabrid = 0
-
-for n in naabrite_skoorid:
-    if n > 10:
-        kahtlased_naabrid += 1
+def parse_neighbours(neighbours: str) -> list:
+    neighbours = neighbours.replace(", N", "; N")
     
-print(kahtlased_naabrid)
+    neighbours_list = []
+
+    neighbours = neighbours.strip().splitlines()
+
+    for line in neighbours:
+        _, actions = line.split(':')
+        actions_list = [action.strip() for action in actions.split(';')]
+        neighbours_list.append(actions_list)
+
+    return neighbours_list
+
+def parse_events(events: str) -> dict:
+    events_dict = {}
+
+    for line in events.strip().splitlines():
+        event, number = line.split(':', 1)
+        events_dict[event.strip()] = int(number.strip())
+
+    return events_dict
+
+def find_sus_neighbours(neighbours: str, events: str) -> int:
+    neighbours_list = parse_neighbours(neighbours)
+    events_dict = parse_events(events)
+    
+    neighbours_scores = []
+
+    for neighbour in neighbours_list:
+        neighbour_score = 0
+        for action in neighbour:
+            neighbour_score += events_dict[action]
+        neighbours_scores.append(neighbour_score)
+
+    sus_neighbours = 0
+
+    for score in neighbours_scores:
+        if score > 10:
+            sus_neighbours += 1
+    
+    return sus_neighbours
+    
+print(find_sus_neighbours(neighbours, events)) # Oodatav väljund: 1
 
 

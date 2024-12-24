@@ -1,6 +1,7 @@
-sisend = "1, 3, 4, 5, 5, 3, 3, 3, 4, 5, 6, 6, 4, 5, 6"
+input_str = "1, 3, 4, 5, 5, 3, 3, 3, 4, 5, 6, 6, 4, 5, 6"
 
-sisend = [int(n.strip()) for n in sisend.split(', ')]
+input_str = [int(n.strip()) for n in input_str.split(", ")]
+
 
 def longest_increasing_subsequence(argument):
     if not argument:
@@ -15,7 +16,7 @@ def longest_increasing_subsequence(argument):
 
     return max(list)
 
-longest_subsequence = longest_increasing_subsequence(sisend)
+
+longest_subsequence = longest_increasing_subsequence(input_str)
 
 print(longest_subsequence)
-

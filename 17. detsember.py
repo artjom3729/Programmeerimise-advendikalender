@@ -1,6 +1,6 @@
 from collections import deque
 
-sisend = """##########
+input_str = """##########
 #L#.......
 #.#.###.##
 #.#...#...
@@ -11,15 +11,15 @@ sisend = """##########
 #.###.###.
 #.....#..."""
 
-sisend = [list(line) for line in sisend.splitlines()]
+input_str = [list(line) for line in input_str.splitlines()]
 
 lennart = None
 kodu = None
-for y in range(len(sisend)):
-    for x in range(len(sisend[y])):
-        if sisend[y][x] == 'L':
+for y in range(len(input_str)):
+    for x in range(len(input_str[y])):
+        if input_str[y][x] == 'L':
             lennart = (x, y)
-        elif sisend[y][x] == 'K':
+        elif input_str[y][x] == 'K':
             kodu = (x, y)
 
 directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
@@ -38,8 +38,8 @@ def bfs(lennart, kodu):
 
         for i, direction in enumerate(directions):
             next_x, next_y = current[0] + direction[0], current[1] + direction[1]
-            if 0 <= next_x < len(sisend[0]) and 0 <= next_y < len(sisend):
-                if sisend[next_y][next_x] != '#' and (next_x, next_y) not in visited:
+            if 0 <= next_x < len(input_str[0]) and 0 <= next_y < len(input_str):
+                if input_str[next_y][next_x] != '#' and (next_x, next_y) not in visited:
                     queue.append((next_x, next_y))
                     visited.add((next_x, next_y))
                     parent[(next_x, next_y)] = current

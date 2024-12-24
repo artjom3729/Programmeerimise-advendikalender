@@ -1,15 +1,15 @@
-sisend = "odForMedFuDrDynamiti"
+input_str = "odForMedFuDrDynamiti"
 
-summa = 0
+total = 0
 
-hinnad = {
+prices = {
     "Kelluke": 1.64,
     "ForMe": 1.89,
     "Dynamit": 0.92
 }
 
-summa += hinnad["Kelluke"] * sisend.count("Kelluke")
-summa += hinnad["ForMe"] * sisend.count("ForMe")
-summa += hinnad["Dynamit"] * sisend.count("Dynamit")
+total += prices["Kelluke"] * input_str.count("Kelluke")
+total += prices["ForMe"] * input_str.count("ForMe")
+total += prices["Dynamit"] * input_str.count("Dynamit")
 
-print(summa)
+print(total) # Oodatav väljund: 2.81

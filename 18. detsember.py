@@ -1,6 +1,6 @@
 from collections import defaultdict
 
-sisend = """|==| |==| |==| |==| |==| 
+input_str = """|==| |==| |==| |==| |==| 
 | =| |  | |  | |  | |  |
 |==| |==| |==| |==| |==|
 
@@ -20,36 +20,41 @@ sisend = """|==| |==| |==| |==| |==|
 |  | |  | |  | || | |  |
 |==| |==| |==| |==|  ==|"""
 
-correct_upper_part  = "|==|"
+correct_upper_part = "|==|"
 correct_middle_part = "|  |"
-correct_bottom_part  = "|==|"
+correct_bottom_part = "|==|"
 
-sisend = sisend.strip().splitlines()
+input_str = input_str.strip().splitlines()
 
-def find_broken_cans(sisend):
+
+def find_broken_cans(input_str):
     incorrect_columns = defaultdict(list)
 
-    for x in range(0, len(sisend[0]), 5):
-        for y in range(0, len(sisend), 4):
+    for x in range(0, len(input_str[0]), 5):
+        for y in range(0, len(input_str), 4):
             upper_part: str = (
-                sisend[y][x] + 
-                sisend[y][x + 1] + 
-                sisend[y][x + 2] + 
-                sisend[y][x + 3]
+                input_str[y][x]
+                + input_str[y][x + 1]
+                + input_str[y][x + 2]
+                + input_str[y][x + 3]
             )
             middle_part: str = (
-                sisend[y + 1][x] +
-                sisend[y + 1][x + 1] +
-                sisend[y + 1][x + 2] +
-                sisend[y + 1][x + 3]
+                input_str[y + 1][x]
+                + input_str[y + 1][x + 1]
+                + input_str[y + 1][x + 2]
+                + input_str[y + 1][x + 3]
             )
             bottom_part: str = (
-                sisend[y + 2][x] +
-                sisend[y + 2][x + 1] +
-                sisend[y + 2][x + 2] +
-                sisend[y + 2][x + 3]
+                input_str[y + 2][x]
+                + input_str[y + 2][x + 1]
+                + input_str[y + 2][x + 2]
+                + input_str[y + 2][x + 3]
             )
-            if upper_part != correct_upper_part or middle_part != correct_middle_part or bottom_part != correct_bottom_part:
+            if (
+                upper_part != correct_upper_part
+                or middle_part != correct_middle_part
+                or bottom_part != correct_bottom_part
+            ):
                 row_number = int(y / 4) + 1
                 column_number = int(x / 5) + 1
                 incorrect_columns[row_number].append(column_number)
@@ -64,4 +69,5 @@ def find_broken_cans(sisend):
 
     return "|" + "||".join(output_rows) + "|"
 
-print(find_broken_cans(sisend))
+
+print(find_broken_cans(input_str))

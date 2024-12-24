@@ -11,9 +11,10 @@ resources = """puit: 42
 naelad: 49
 köis: 49"""
 
+
 def parse_traps(traps_str):
     trap_list = []
-    for line in traps_str.strip().split("\n"):
+    for line in traps_str.strip().splitlines():
         left, right = line.split(": ", 1)
         trap_id = int(left)
         parts = right.split(", ")
@@ -25,12 +26,14 @@ def parse_traps(traps_str):
     trap_list.sort(key=lambda x: x[0])
     return trap_list
 
+
 def parse_resources(resources_str):
     resource_dict = {}
-    for line in resources_str.strip().split('\n'):
-        name, val = line.split(':')
+    for line in resources_str.strip().splitlines():
+        name, val = line.split(":")
         resource_dict[name.strip()] = int(val.strip())
     return resource_dict
+
 
 def can_build_subset(subset, resources):
     used = {r: 0 for r in resources}
@@ -41,11 +44,12 @@ def can_build_subset(subset, resources):
                 return False
     return True
 
+
 def find_best_combo(traps_str, resources_str):
     traps = parse_traps(traps_str)
     resources = parse_resources(resources_str)
     best_combo = []
-    
+
     for r in range(len(traps) + 1):
         current_combos = []
         for combo in combinations(traps, r):
@@ -54,6 +58,7 @@ def find_best_combo(traps_str, resources_str):
         if current_combos:
             best_combo = min(current_combos)
     return best_combo
+
 
 best_trap_combo = find_best_combo(traps, resources)
 print(", ".join(map(str, best_trap_combo)))

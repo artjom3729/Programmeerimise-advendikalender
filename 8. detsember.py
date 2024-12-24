@@ -1,5 +1,5 @@
 max_weight = 7933006
-sisend = """2726153
+input_str = """2726153
 4186044
 3136410
 4592531
@@ -16,8 +16,8 @@ sisend = """2726153
 4602506
 1131692"""
 
-def min_trucks(max_weight, sisend):
-    weights = list(map(int, sisend.strip().split()))
+def min_trucks(max_weight, input_str):
+    weights = list(map(int, input_str.strip().split()))
     weights.sort(reverse=True)
     
     trucks = []
@@ -34,5 +34,5 @@ def min_trucks(max_weight, sisend):
     
     return len(trucks)
 
-result = min_trucks(max_weight, sisend)
+result = min_trucks(max_weight, input_str)
 print(result)

@@ -1,4 +1,4 @@
-sisend = """__________
+input_str = """__________
 __________
 _____X____
 _____X____
@@ -9,25 +9,26 @@ _____X____
 __________
 __________"""
 
-sisend = sisend.strip().splitlines()
+def find_perimeter(input_str: str) -> int:
+    input_str = input_str.strip().splitlines()
 
-ulemine_x = (float("inf"), float("inf"))
-alumine_x = (0, 0)
-vasak_x = (float("inf"), float("inf"))
-parem_x = (0, 0)
+    top_x = (float("inf"), float("inf"))
+    bottom_x = (0, 0)
+    left_x = (float("inf"), float("inf"))
+    right_x = (0, 0)
 
-for y in range(len(sisend)):
-    for x in range(len(sisend[y])):
-        if sisend[y][x] == "X":
-            if y < ulemine_x[1]:
-                ulemine_x = (x, y)
-            if y > alumine_x[1]:
-                alumine_x = (x, y)
-            if x < vasak_x[0]:
-                vasak_x = (x, y)
-            if x > parem_x[0]:
-                parem_x = (x, y)
+    for y in range(len(input_str)):
+        for x in range(len(input_str[y])):
+            if input_str[y][x] == "X":
+                if y < top_x[1]:
+                    top_x = (x, y)
+                if y > bottom_x[1]:
+                    bottom_x = (x, y)
+                if x < left_x[0]:
+                    left_x = (x, y)
+                if x > right_x[0]:
+                    right_x = (x, y)
 
-kaugus = 2 * (alumine_x[1] - ulemine_x[1] + parem_x[0] - vasak_x[0] + 4)
+    return 2 * (bottom_x[1] - top_x[1] + right_x[0] - left_x[0] + 4)
 
-print(kaugus)
+print(find_perimeter(input_str)) # Oodatav väljund: 22

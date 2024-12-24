@@ -1,9 +1,9 @@
 from collections import Counter
 
 letters = "HNT"
-sisend = "ILBHCNDLET"
+input_str = "ILBHCNDLET"
 
-def smallest_substring_with_all_letters(sisend, letters):
+def smallest_substring_with_all_letters(input_str, letters):
     required = Counter(letters)
     window_counts = Counter()
     
@@ -13,19 +13,19 @@ def smallest_substring_with_all_letters(sisend, letters):
     min_length = float('inf')
     min_window = ""
     
-    while r < len(sisend):
-        char = sisend[r]
+    while r < len(input_str):
+        char = input_str[r]
         window_counts[char] += 1
         
         if char in required and window_counts[char] == required[char]:
             formed += 1
         
         while l <= r and formed == required_length:
-            char = sisend[l]
+            char = input_str[l]
             
             if r - l + 1 < min_length:
                 min_length = r - l + 1
-                min_window = sisend[l:r+1]
+                min_window = input_str[l:r+1]
             
             window_counts[char] -= 1
             if char in required and window_counts[char] < required[char]:
@@ -37,5 +37,5 @@ def smallest_substring_with_all_letters(sisend, letters):
     
     return min_window
 
-result = smallest_substring_with_all_letters(sisend, letters)
+result = smallest_substring_with_all_letters(input_str, letters)
 print(result)

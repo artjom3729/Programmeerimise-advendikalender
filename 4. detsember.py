@@ -1,35 +1,25 @@
-sisend = "Sf zrjš pütn pftü!"
+input_str = "Sf zrjš pütn pftü!"
 
-sisend = list(sisend)
+def decrypt_caesar(input_str: str) -> list:
+    input_str = list(input_str)
 
-tahestik = "ABCDEFGHIJKLMNOPRSŠZŽTUVÕÄÖÜ"
-tahestik = list(tahestik)
+    alphabet = "ABCDEFGHIJKLMNOPRSŠZŽTUVÕÄÖÜ"
+    alphabet = list(alphabet)
 
-laused = []
+    sentences = []
 
-for arv in range(len(tahestik)):
-    nihe = arv
-    uus_lause = []
-    for n in sisend:
-        if n == " ":
-            uus_lause.append(" ")
-        elif n == ",":
-            uus_lause.append(",")
-        elif n == ".":
-            uus_lause.append(".")
-        elif n == "!":
-            uus_lause.append("!")
-        elif n == "?":
-            uus_lause.append("?")
-        else:
-            try:
-                index = tahestik.index(n.upper())
-                new_index = (index - nihe) % len(tahestik)
-                uus_lause.append(tahestik[new_index])
-            except ValueError:
-                
-                uus_lause.append(n)
-    laused.append("".join(uus_lause))
-            
-for n in laused:
-    print(n)
+    for shift in range(len(alphabet)):
+        new_sentence = []
+        for character in input_str:
+            if character in " ,.!?:;-—":
+                new_sentence.append(character)
+            else:
+                index = alphabet.index(character.upper())
+                new_index = (index - shift) % len(alphabet)
+                new_sentence.append(alphabet[new_index])
+        sentences.append("".join(new_sentence))
+    
+    return sentences
+
+for sentence in decrypt_caesar(input_str):
+    print(sentence) # Leidke ise õige lause

@@ -1,5 +1,5 @@
-numbrid = "55"
-sisend = """1123255
+numbers = "55"
+input_str = """1123255
 1415640
 6415634
 6414248
@@ -8,27 +8,27 @@ sisend = """1123255
 6412652
 2412054"""
 
-numbrid = [int(digit) for digit in numbrid]
+numbers = [int(digit) for digit in numbers]
 
-sisend = sisend.strip().splitlines()
+input_str = input_str.strip().splitlines()
 
-uus_sisend = []
+uus_input_str = []
 
-for n in sisend:
+for n in input_str:
     n = [int(char) for char in n]
-    uus_sisend.append(n)
+    uus_input_str.append(n)
 
-telefoninumbrid = []
+telefoninumbers = []
 
-for n in uus_sisend:
-    if n[0] == numbrid[0] and n[1] == numbrid[1]:
-        telefoninumbrid.append(int("".join(map(str, n)))) 
+for n in uus_input_str:
+    if n[0] == numbers[0] and n[1] == numbers[1]:
+        telefoninumbers.append(int("".join(map(str, n)))) 
 
-for y in range(len(uus_sisend) - 6):
-    for x in range(len(uus_sisend[y])):
-        if (uus_sisend[y][x] == numbrid[0] and 
-            uus_sisend[y+1][x] == numbrid[1]):
-            telefoninumber = int("".join(str(uus_sisend[y+i][x]) for i in range(7)))
-            telefoninumbrid.append(telefoninumber)
+for y in range(len(uus_input_str) - 6):
+    for x in range(len(uus_input_str[y])):
+        if (uus_input_str[y][x] == numbers[0] and 
+            uus_input_str[y+1][x] == numbers[1]):
+            telefoninumber = int("".join(str(uus_input_str[y+i][x]) for i in range(7)))
+            telefoninumbers.append(telefoninumber)
 
-print(telefoninumbrid)
+print(telefoninumbers)
