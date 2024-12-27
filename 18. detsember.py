@@ -32,19 +32,19 @@ def find_broken_cans(input_str):
 
     for x in range(0, len(input_str[0]), 5):
         for y in range(0, len(input_str), 4):
-            upper_part: str = (
+            upper_part = (
                 input_str[y][x]
                 + input_str[y][x + 1]
                 + input_str[y][x + 2]
                 + input_str[y][x + 3]
             )
-            middle_part: str = (
+            middle_part = (
                 input_str[y + 1][x]
                 + input_str[y + 1][x + 1]
                 + input_str[y + 1][x + 2]
                 + input_str[y + 1][x + 3]
             )
-            bottom_part: str = (
+            bottom_part = (
                 input_str[y + 2][x]
                 + input_str[y + 2][x + 1]
                 + input_str[y + 2][x + 2]
@@ -70,4 +70,4 @@ def find_broken_cans(input_str):
     return "|" + "||".join(output_rows) + "|"
 
 
-print(find_broken_cans(input_str))
+print(find_broken_cans(input_str)) # Expected output: |1||||2||||4, 5|

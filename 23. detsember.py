@@ -27,4 +27,6 @@ def check_gifts(input_str):
 
 
 print(", ".join(map(str, check_gifts(input_str))))
-print(len(check_gifts(input_str)))
+
+
+print(len(check_gifts(input_str))) # Expected output: 3

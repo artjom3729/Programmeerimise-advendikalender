@@ -37,5 +37,6 @@ def smallest_substring_with_all_letters(input_str, letters):
     
     return min_window
 
+
 result = smallest_substring_with_all_letters(input_str, letters)
-print(result)
+print(result) # Expected output: HCNDLET

@@ -42,5 +42,6 @@ def tallest_tree_height(input_str):
     
     return max(dp)
 
+
 result = tallest_tree_height(input_str)
-print(result)
+print(result) # Expected output: 70

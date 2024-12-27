@@ -19,4 +19,6 @@ def longest_increasing_subsequence(argument):
 
 longest_subsequence = longest_increasing_subsequence(input_str)
 
-print(longest_subsequence)
+
+print(longest_subsequence) # Expected output: 5
+

@@ -21,33 +21,36 @@ neighbours = """0: Naaber on alati sõbralik, Naaber vaatab pikalt aknast välja
 3: Naaber väldib teisi naabreid, Naaber väldib teisi naabreid
 4: Naaber kaunistab maja, Naaber viib hilisõhtul midagi autosse, Naaber viib prügikoti välja"""
 
-def parse_neighbours(neighbours: str) -> list:
+
+def parse_neighbours(neighbours):
     neighbours = neighbours.replace(", N", "; N")
-    
+
     neighbours_list = []
 
     neighbours = neighbours.strip().splitlines()
 
     for line in neighbours:
-        _, actions = line.split(':')
-        actions_list = [action.strip() for action in actions.split(';')]
+        _, actions = line.split(":")
+        actions_list = [action.strip() for action in actions.split(";")]
         neighbours_list.append(actions_list)
 
     return neighbours_list
 
-def parse_events(events: str) -> dict:
+
+def parse_events(events):
     events_dict = {}
 
     for line in events.strip().splitlines():
-        event, number = line.split(':', 1)
+        event, number = line.split(":", 1)
         events_dict[event.strip()] = int(number.strip())
 
     return events_dict
 
-def find_sus_neighbours(neighbours: str, events: str) -> int:
+
+def find_sus_neighbours(neighbours, events):
     neighbours_list = parse_neighbours(neighbours)
     events_dict = parse_events(events)
-    
+
     neighbours_scores = []
 
     for neighbour in neighbours_list:
@@ -61,9 +64,8 @@ def find_sus_neighbours(neighbours: str, events: str) -> int:
     for score in neighbours_scores:
         if score > 10:
             sus_neighbours += 1
-    
+
     return sus_neighbours
-    
-print(find_sus_neighbours(neighbours, events)) # Oodatav väljund: 1
 
 
+print(find_sus_neighbours(neighbours, events))  # Expected output: 1

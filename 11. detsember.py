@@ -49,5 +49,7 @@ def find_invited(friends, dislike, not_invited):
     
     return invited
 
+
 result = find_invited(friends, dislike, not_invited)
-print(", ".join(result))
+print(", ".join(result)) # Expected output: Lilian, Henrik
+

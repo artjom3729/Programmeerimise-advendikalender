@@ -154,18 +154,15 @@ def black_scenario(grid):
                     black_grid[y][x] = "*"  # Flood the room
                     changed = True  # A change has occurred
 
-    # Count the total number of damaged rooms
     damaged_count = sum(row.count("*") for row in black_grid)
 
     return damaged_count
 
 
-# Parse the input grid and add boundaries
 bounded_input_str = parse_and_add_boundaries(input_str)
 
-# Calculate scenarios
 rose = rose_scenario(bounded_input_str)
 black = black_scenario(bounded_input_str)
 
-# Output the results
-print(f"{rose}, {black}")  # Expected Output: 19, 23
+
+print(f"{rose}, {black}")  # Expected output: 19, 23

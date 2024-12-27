@@ -61,4 +61,6 @@ def find_best_combo(traps_str, resources_str):
 
 
 best_trap_combo = find_best_combo(traps, resources)
-print(", ".join(map(str, best_trap_combo)))
+
+
+print(", ".join(map(str, best_trap_combo))) # Expected output: 0, 1, 2, 3

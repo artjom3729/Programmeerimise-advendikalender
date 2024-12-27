@@ -44,4 +44,4 @@ def count_blocks(text):
 
 
 blocks_3x3, blocks_2x2, blocks_1x1 = count_blocks(input_str)
-print(f"{blocks_3x3}, {blocks_2x2}, {blocks_1x1}")
+print(f"{blocks_3x3}, {blocks_2x2}, {blocks_1x1}") # Expected output: 51, 47, 4

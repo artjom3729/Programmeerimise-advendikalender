@@ -9,7 +9,8 @@ _____X____
 __________
 __________"""
 
-def find_perimeter(input_str: str) -> int:
+
+def find_perimeter(input_str):
     input_str = input_str.strip().splitlines()
 
     top_x = (float("inf"), float("inf"))
@@ -31,4 +32,5 @@ def find_perimeter(input_str: str) -> int:
 
     return 2 * (bottom_x[1] - top_x[1] + right_x[0] - left_x[0] + 4)
 
-print(find_perimeter(input_str)) # Oodatav väljund: 22
+
+print(find_perimeter(input_str))  # Expected output: 22

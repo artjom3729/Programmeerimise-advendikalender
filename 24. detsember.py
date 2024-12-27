@@ -53,7 +53,10 @@ def find_optimal_distribution(people, tasks):
 people, tasks = parse_input(input_str)
 min_time, best_assignment = find_optimal_distribution(people, tasks)
 
-print(f"Optimaalne aeg, et lõpetada kõik tegevused: {min_time} min")
+
 for task_idx in range(len(tasks[0])):
     person_idx = best_assignment[task_idx]
     print(f"{tasks[person_idx][task_idx][0]}: {people[person_idx]}")
+
+
+print(min_time) # Expected output: 67

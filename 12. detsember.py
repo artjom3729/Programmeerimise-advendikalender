@@ -33,5 +33,6 @@ def face_control(invited_guests, coming_guests):
     
     return len(allowed), len(not_allowed)
 
+
 allowed_count, not_allowed_count = face_control(invited_guests, coming_guests)
-print(f"Sissepääs lubatud: {allowed_count}. Sissepääs keelatud: {not_allowed_count}.")
+print(f"Sissepääs lubatud: {allowed_count}. Sissepääs keelatud: {not_allowed_count}.") # Expected output: Sissepääs lubatud: 2. Sissepääs keelatud: 2.

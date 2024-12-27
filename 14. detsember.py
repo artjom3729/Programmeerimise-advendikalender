@@ -57,4 +57,4 @@ def count_chairs(input_str):
 
 
 chair_count = count_chairs(input_str)
-print(chair_count)
+print(chair_count) # Expected output: 29

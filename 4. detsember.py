@@ -1,6 +1,7 @@
 input_str = "Sf zrjš pütn pftü!"
 
-def decrypt_caesar(input_str: str) -> list:
+
+def decrypt_caesar(input_str):
     input_str = list(input_str)
 
     alphabet = "ABCDEFGHIJKLMNOPRSŠZŽTUVÕÄÖÜ"
@@ -18,8 +19,9 @@ def decrypt_caesar(input_str: str) -> list:
                 new_index = (index - shift) % len(alphabet)
                 new_sentence.append(alphabet[new_index])
         sentences.append("".join(new_sentence))
-    
+
     return sentences
 
+
 for sentence in decrypt_caesar(input_str):
-    print(sentence) # Leidke ise õige lause
+    print(sentence)  # Leidke ise õige lause

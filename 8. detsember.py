@@ -1,20 +1,14 @@
-max_weight = 7933006
-input_str = """2726153
-4186044
-3136410
-4592531
-2447141
-2949780
-3752986
-4305189
-1169064
-1352819
-2055567
-1963417
-4745234
-2481507
-4602506
-1131692"""
+max_weight = 48
+input_str = """44
+41
+25
+25
+24
+22
+20
+18
+16
+12"""
 
 def min_trucks(max_weight, input_str):
     weights = list(map(int, input_str.strip().split()))
@@ -34,5 +28,6 @@ def min_trucks(max_weight, input_str):
     
     return len(trucks)
 
+
 result = min_trucks(max_weight, input_str)
-print(result)
+print(result) # Expected output: 6

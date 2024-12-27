@@ -19,4 +19,5 @@ syllable_counts = [count_syllables(row) for row in rows]
 
 amount = len([count for count in syllable_counts if count != 16])
 
-print(amount)
+
+print(amount) # Expected output: 1

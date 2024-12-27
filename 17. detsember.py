@@ -67,4 +67,5 @@ def bfs(lennart, kodu):
 
 path, directions_path = bfs(lennart, kodu)
 
-print("".join(directions_path))
+
+print("".join(directions_path)) # Expected output: VVPVP

@@ -81,4 +81,4 @@ def find_shortest_path_length(input_str, path):
 
 
 total_length = find_shortest_path_length(input_str, path)
-print(f"Total path length: {total_length}")
+print(total_length) # Expected output: 21

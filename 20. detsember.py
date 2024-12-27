@@ -36,4 +36,5 @@ for perm in permutations:
         shortest_time = route_time
         shortest_route = route
 
-print(" -> ".join(shortest_route))
+
+print(" -> ".join(shortest_route)) # Expected output: Lennarti Kodu -> Pärnu -> Tartu -> Tallinn -> Lennarti Kodu
